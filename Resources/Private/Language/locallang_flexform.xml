@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the gowest_contentelements extension in the Flexform formular</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mediaImage.Image">Image</label>          
+			<label index="mediaImage.globalTextOverlay">Global Text Overlay</label>          
+			<label index="mediaImage.overlaySummary">Overlay-Summary</label>          
+			<label index="mediaImage.overlayTitle">Overlay-Title</label>          
+			<label index="mediaImage.overlaySubtitle">Overlay-Title</label>          
+			<label index="mediaImage.overlayLinktext">Overlay-Title</label>          
+			<label index="mediaImage.overlayLink">Overlay-Title</label> 
+
+			<label index="mediaVideo.Video">Video</label>          
+			<label index="mediaVideo.videoOverlays">Video Overlays</label>          
+		</languageKey>
+	</data>
+</T3locallang>
