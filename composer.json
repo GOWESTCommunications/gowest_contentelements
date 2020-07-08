@@ -1,5 +1,5 @@
 {
-    "name": "gowest_contentelements",
+    "name": "gowest/gowest-contentelements",
     "type": "typo3-cms-extension",
     "description": "Grid Elements json output for EXT:gowest_contentelements",
     "keywords": [
@@ -17,12 +17,16 @@
         "homepage": "https://www.go-west.at"
       }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "minimum-stability": "stable",
     "license": "MIT",
     "require": {
       "php": ">=7.2",
-      "typo3/cms-core": "^10.0"
+      "typo3/cms-core": "^10.0",
+      "friendsoftypo3/headless": "^2.0"
+    },
+    "replace": {
+      "gowest/gowest-contentelements": "self.version",
+      "typo3-ter/gowest-contentelements": "self.version"
     },
     "autoload": {
       "psr-4": {

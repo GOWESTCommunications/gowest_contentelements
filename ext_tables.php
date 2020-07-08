@@ -15,4 +15,4 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestconten
     'FILE:EXT:gowest_contentelements/Configuration/FlexForms/FlexForm.xml'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('gowest_contentelements', 'Configuration/TypoScript', 'GO.WEST Contentelements');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('gowest_contentelements', 'Configuration/TypoScript', 'GO.WEST');

@@ -1,0 +1,4 @@
+## Include content elements
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:gowest_contentelements/Configuration/TypoScript/ContentElement/" extensions="typoscript">
+## Include configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:gowest_contentelements/Configuration/TypoScript/Configuration/" extensions="typoscript">
