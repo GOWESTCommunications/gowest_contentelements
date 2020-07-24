@@ -8,7 +8,7 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <switchableControllerActions>
+                 <settings.element>
                         <TCEforms>
                             <label>Content Element</label>
                             <config>
@@ -17,22 +17,22 @@
                                 <items>
                                     <numIndex index="1">
                                     <numIndex index="0">Media Image</numIndex>
-                                    <numIndex index="1">Contentelements->mediaImage</numIndex>
+                                    <numIndex index="1">mediaImage</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
                                     <numIndex index="0">Media Video</numIndex>
-                                    <numIndex index="1">Contentelements->mediaVideo</numIndex>
+                                    <numIndex index="1">mediaVideo</numIndex>
                                     </numIndex>
                                 </items>
                             </config>
                             <onChange>reload</onChange>
                         </TCEforms>
-                    </switchableControllerActions>
+                    </settings.element>
                     <!-- Media Image START -->
                     <settings.Image>
 						<TCEforms>
 							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.Image</label>
-							<displayCond>FIELD:switchableControllerActions:=:Contentelements->mediaImage</displayCond>
+                            <displayCond>FIELD:settings.element:IN:mediaImage</displayCond>
 							<config>
                                 <type>inline</type>
                                 <maxitems>99</maxitems>
@@ -106,7 +106,7 @@
                     <settings.globalTextOverlay>
 						<TCEforms>
 							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.globalTextOverlay</label>
-							<displayCond>FIELD:switchableControllerActions:=:Contentelements->mediaImage</displayCond>
+                            <displayCond>FIELD:settings.element:IN:mediaImage</displayCond>
 							<config>
                                 <type>check</type>
                                 <default>0</default>
@@ -119,7 +119,7 @@
 							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySummary</label>
 							<displayCond>
                                 <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Contentelements->mediaImage</numIndex>
+                                    <numIndex>FIELD:settings.element:IN:mediaImage</numIndex>
                                     <AND>
                                         <numIndex>FIELD:settings.globalTextOverlay:=:1</numIndex>                                       
                                     </AND>
@@ -135,10 +135,10 @@
 					</settings.overlaySummary>
                     <settings.overlayTitle>
 						<TCEforms>
-							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySummary</label>
+							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlayTitle</label>
 							<displayCond>
                                 <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Contentelements->mediaImage</numIndex>
+                                    <numIndex>FIELD:settings.element:IN:mediaImage</numIndex>
                                     <AND>
                                         <numIndex>FIELD:settings.globalTextOverlay:=:1</numIndex>                                       
                                     </AND>
@@ -154,10 +154,10 @@
 					</settings.overlayTitle>
                     <settings.overlaySubtitle>
 						<TCEforms>
-							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySummary</label>
+							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySubtitle</label>
 							<displayCond>
                                 <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Contentelements->mediaImage</numIndex>
+                                    <numIndex>FIELD:settings.element:IN:mediaImage</numIndex>
                                     <AND>
                                         <numIndex>FIELD:settings.globalTextOverlay:=:1</numIndex>                                       
                                     </AND>
@@ -173,10 +173,10 @@
 					</settings.overlaySubtitle>
                     <settings.overlayLinktext>
 						<TCEforms>
-							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySummary</label>
+							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlayLinktext</label>
 							<displayCond>
                                 <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Contentelements->mediaImage</numIndex>
+                                    <numIndex>FIELD:settings.element:IN:mediaImage</numIndex>
                                     <AND>
                                         <numIndex>FIELD:settings.globalTextOverlay:=:1</numIndex>                                       
                                     </AND>
@@ -192,10 +192,10 @@
 					</settings.overlayLinktext>
                     <settings.overlayLink>
 						<TCEforms>
-							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlaySummary</label>
+							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaImage.overlayLink</label>
 							<displayCond>
                                 <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Contentelements->mediaImage</numIndex>
+                                    <numIndex>FIELD:settings.element:IN:mediaImage</numIndex>
                                     <AND>
                                         <numIndex>FIELD:settings.globalTextOverlay:=:1</numIndex>                                       
                                     </AND>
@@ -215,7 +215,7 @@
                     <settings.Video>
 						<TCEforms>
 							<label>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaVideo.Video</label>
-							<displayCond>FIELD:switchableControllerActions:=:Contentelements->mediaVideo</displayCond>
+							 <displayCond>FIELD:settings.element:IN:mediaVideo</displayCond>
 							<config>
                                 <type>inline</type>
                                 <maxitems>99</maxitems>
@@ -290,7 +290,7 @@
                         <section>1</section>
                         <type>array</type>
                         <title>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:mediaVideo.videoOverlays</title>
-                        <displayCond>FIELD:switchableControllerActions:=:Contentelements->mediaVideo</displayCond>
+                        <displayCond>FIELD:settings.element:IN:mediaVideo</displayCond>
                         <el>
                         <container>
                             <title>Video Overlay</title>
@@ -334,6 +334,7 @@
                         </el>
 					</settings.videoOverlays>
                     <!-- Media Video END -->
+                   
                 </el>
             </ROOT>
         </gowestContentelements>

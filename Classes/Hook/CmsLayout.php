@@ -1,5 +1,5 @@
 <?php
-namespace GOWEST\Contentelements\Hook;
+namespace GoWest\Gowestcontentelements\Hook;
 
 class CmsLayout
 {

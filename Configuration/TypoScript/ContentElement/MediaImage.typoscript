@@ -1,15 +1,69 @@
-lib.mediaImage = CONTENT
-lib.mediaImage {
-    table = tt_content
-    select {
-        pidInList = this
-    }
+tt_content.list =< lib.contentElementWithHeader
+tt_content.list {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = list_type
 
-    renderObj = COA
-    renderObj {
-        10 = TEXT
-        10 {
-            data = flexform: gowestContentelements:settings.Image
+                    gowestcontentelements_custom = JSON
+                    gowestcontentelements_custom {
+                        fields {
+                            //Elementselection
+                            contentelement = TEXT
+                            contentelement.data = flexform: pi_flexform:settings.element
+
+                            //Image
+                            image = TEXT
+                            image.data = flexform: pi_flexform:settings.Image
+                            image.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = image
+                                    as = files
+                                }
+                            }
+
+                            global_textoverlay = TEXT
+                            global_textoverlay.data = flexform: pi_flexform:settings.globalTextOverlay
+
+                            global_textoverlay_summary = TEXT
+                            global_textoverlay_summary.data = flexform: pi_flexform:settings.overlaySummary
+
+                            global_textoverlay_title = TEXT
+                            global_textoverlay_title.data = flexform: pi_flexform:settings.overlayTitle
+
+                            global_textoverlay_subtitle = TEXT
+                            global_textoverlay_subtitle.data = flexform: pi_flexform:settings.overlaySubtitle
+
+                            global_textoverlay_linktext = TEXT
+                            global_textoverlay_linktext.data = flexform: pi_flexform:settings.overlayLinktext
+
+                            global_textoverlay_link = TEXT
+                            global_textoverlay_link.data = flexform: pi_flexform:settings.overlayLink
+
+                            //Video
+                            video = TEXT
+                            video.data = flexform: pi_flexform:settings.Video
+                            video.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = video
+                                    as = files
+                                }
+                            }
+
+                            
+
+                            
+
+
+                        }
+                        
+                    }
+                }
+            }
+ 
         }
     }
-}

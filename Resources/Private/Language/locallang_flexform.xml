@@ -10,9 +10,9 @@
 			<label index="mediaImage.globalTextOverlay">Global Text Overlay</label>          
 			<label index="mediaImage.overlaySummary">Overlay-Summary</label>          
 			<label index="mediaImage.overlayTitle">Overlay-Title</label>          
-			<label index="mediaImage.overlaySubtitle">Overlay-Title</label>          
-			<label index="mediaImage.overlayLinktext">Overlay-Title</label>          
-			<label index="mediaImage.overlayLink">Overlay-Title</label> 
+			<label index="mediaImage.overlaySubtitle">Overlay-Subtitle</label>          
+			<label index="mediaImage.overlayLinktext">Overlay-Linktext</label>          
+			<label index="mediaImage.overlayLink">Overlay-Link</label> 
 
 			<label index="mediaVideo.Video">Video</label>          
 			<label index="mediaVideo.videoOverlays">Video Overlays</label>          

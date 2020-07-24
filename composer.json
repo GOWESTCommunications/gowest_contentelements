@@ -2,25 +2,9 @@
     "name": "gowest/gowest-contentelements",
     "type": "typo3-cms-extension",
     "description": "Grid Elements json output for EXT:gowest_contentelements",
-    "keywords": [
-      "TYPO3",
-      "TYPO3 CMS",
-      "extension",
-      "contentelements",
-      "gowest"
-    ],
-    "authors": [
-      {
-        "name": "Julia Reisinger",
-        "email": "j.reisinger@go-west.at",
-        "role": "Developer",
-        "homepage": "https://www.go-west.at"
-      }
-    ],
-    "minimum-stability": "stable",
+    "homepage": "http://go-west.at",
     "license": "MIT",
     "require": {
-      "php": ">=7.2",
       "typo3/cms-core": "^10.0",
       "friendsoftypo3/headless": "^2.0"
     },
@@ -30,12 +14,7 @@
     },
     "autoload": {
       "psr-4": {
-        "GOWEST\\Contentelements\\": "Classes"
-      }
-    },
-    "autoload-dev": {
-      "psr-4": {
-        "GOWEST\\Contentelements\\Tests\\": "Tests"
+        "GoWest\\GowestContentelements\\": "Classes"
       }
     }
 }
