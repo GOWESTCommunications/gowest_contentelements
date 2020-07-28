@@ -3,18 +3,16 @@ tt_content.list {
     fields {
         content {
             fields {
+
                 data = CASE
                 data {
                     key.field = list_type
 
-                    gowestcontentelements_custom = JSON
-                    gowestcontentelements_custom {
+                    gowestcontentelements_mediaimage = JSON
+                    gowestcontentelements_mediaimage {
                         fields {
-                            //Elementselection
-                            contentelement = TEXT
-                            contentelement.data = flexform: pi_flexform:settings.element
 
-                            //Image
+                            
                             image = TEXT
                             image.data = flexform: pi_flexform:settings.Image
                             image.dataProcessing {
@@ -42,28 +40,10 @@ tt_content.list {
 
                             global_textoverlay_link = TEXT
                             global_textoverlay_link.data = flexform: pi_flexform:settings.overlayLink
-
-                            //Video
-                            video = TEXT
-                            video.data = flexform: pi_flexform:settings.Video
-                            video.dataProcessing {
-                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
-                                10 {
-                                    references.fieldName = video
-                                    as = files
-                                }
-                            }
-
-                            
-
-                            
-
-
-                        }
-                        
+                        }  
                     }
                 }
             }
- 
         }
     }
+}

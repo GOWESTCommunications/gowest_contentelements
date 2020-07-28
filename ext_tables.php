@@ -1,18 +1,29 @@
 <?php
 if(!defined('TYPO3_MODE')) die('Access denied.');
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'GoWest.gowest_contentelements',
-    'Custom',
-    'GO.WEST Contentelements'
-);
+#\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+#    'GoWest.gowest_contentelements',
+#    'Custom',
+#    'GO.WEST Contentelements'
+#);
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_custom'] = 'layout,select_key,pages,recursive'; 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_custom'] = 'pi_flexform';
+/**
+ * Registers a Backend Module
+ */
+//\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+//    'GoWest.gowest_contentelements',
+//    'web', // Make module a submodule of 'web'
+//    'gowest_contentelements_m1', // Submodule key
+//    '', // Position
+//    [ // An array holding the controller-action-combinations that are accessible
+//        'Mediaimage' => 'index', // The first controller and its first action will be the default
+//        'Mediavideo' => 'index',
+//    ],
+//    [
+//        //'access' => 'user,group',
+//        //'icon' => 'EXT:blog_example/Resources/Public/Icons/module-blog.svg',
+//        //'labels' => 'LLL:EXT:blog_example/Resources/Private/Language/locallang_mod.xml',
+//    ]
+//);
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    'gowestcontentelements_custom',
-    'FILE:EXT:gowest_contentelements/Configuration/FlexForms/FlexForm.xml'
-);
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('gowest_contentelements', 'Configuration/TypoScript', 'GO.WEST');

@@ -15,7 +15,19 @@
 			<label index="mediaImage.overlayLink">Overlay-Link</label> 
 
 			<label index="mediaVideo.Video">Video</label>          
-			<label index="mediaVideo.videoOverlays">Video Overlays</label>          
+			<label index="mediaVideo.videoOverlays">Video Overlays</label>      
+
+			<label index="landingpagemediaImage.Headline">Headline</label>      
+			<label index="landingpagemediaImage.Preis">Preis</label>      
+			<label index="landingpagemediaImage.Info">Info</label>      
+			<label index="landingpagemediaImage.Button1Text">Button 1 Text</label>      
+			<label index="landingpagemediaImage.Button1Link">Button 1 Link</label>      
+			<label index="landingpagemediaImage.Button2Text">Button 2 Text</label>      
+			<label index="landingpagemediaImage.Button2Link">Button 2 Link</label>      
+			<label index="landingpagemediaImage.PackageID">Package ID</label>      
+			     
+
+
 		</languageKey>
 	</data>
 </T3locallang>
