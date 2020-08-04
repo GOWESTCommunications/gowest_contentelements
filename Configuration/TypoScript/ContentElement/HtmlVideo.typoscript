@@ -1,0 +1,66 @@
+tt_content.list =< lib.contentElementWithHeader
+tt_content.list {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = list_type
+
+                    gowestcontentelements_htmlvideo = JSON
+                    gowestcontentelements_htmlvideo {
+                        fields {
+
+                            video = TEXT
+                            video.data = flexform: pi_flexform:settings.htmlVideo
+                            video.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = video
+                                    as = files
+                                }
+                            }   
+
+                            poster = TEXT
+                            poster.data = flexform: pi_flexform:settings.Poster
+                            poster.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = image
+                                    as = files
+                                }
+                            }
+
+                            autoplay = TEXT
+                            autoplay.data = flexform: pi_flexform:settings.Autoplay 
+
+                            controls = TEXT
+                            controls.data = flexform: pi_flexform:settings.Controls
+
+                            loop = TEXT
+                            loop.data = flexform: pi_flexform:settings.Loop
+
+                            muted = TEXT
+                            muted.data = flexform: pi_flexform:settings.Muted
+
+                            preloadOptions = TEXT
+                            preloadOptions.data = flexform: pi_flexform:settings.preloadOptions
+
+                            noFullscreen = TEXT
+                            noFullscreen.data = flexform: pi_flexform:settings.NoFullscreen
+
+                            noDownload = TEXT
+                            noDownload.data = flexform: pi_flexform:settings.NoDownload
+                            
+                            noPictureInPicture = TEXT
+                            noPictureInPicture.data = flexform: pi_flexform:settings.NoPictureInPicture
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

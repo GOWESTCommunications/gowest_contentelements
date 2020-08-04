@@ -24,7 +24,13 @@
 			<label index="landingpagemediaImage.Button1Link">Button 1 Link</label>      
 			<label index="landingpagemediaImage.Button2Text">Button 2 Text</label>      
 			<label index="landingpagemediaImage.Button2Link">Button 2 Link</label>      
-			<label index="landingpagemediaImage.PackageID">Package ID</label>      
+			<label index="landingpagemediaImage.PackageID">Package ID</label>   
+
+
+			<label index="uspTeaser.cols">Cols</label>   
+			<label index="uspTeaser.usps">USPs</label>   
+
+
 			     
 
 

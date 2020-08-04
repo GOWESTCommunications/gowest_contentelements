@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+    <sheets>
+        <gowestContentelementsquote>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Configuration</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.text>
+						<TCEforms>
+							<label>Text</label>
+							<config>
+                                <type>text</type>
+                                <enableRichtext>1</enableRichtext>
+	                            <richtextConfiguration>default</richtextConfiguration>
+                            </config>
+						</TCEforms>
+					</settings.text>
+                    <settings.author>
+						<TCEforms>
+							<label>Author</label>
+							<config>
+                                <type>text</type>
+                                <rows>1</rows>
+                                <cols>30</cols>
+                                <eval>trim</eval>
+                            </config>
+						</TCEforms>
+					</settings.author>
+                </el>
+            </ROOT>
+        </gowestContentelementsquote>
+    </sheets>
+</T3DataStructure>

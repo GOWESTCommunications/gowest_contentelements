@@ -7,6 +7,7 @@ if(!defined('TYPO3_MODE')) die('Access denied.');
 #    'GO.WEST Contentelements'
 #);
 
+
 /**
  * Registers a Backend Module
  */
