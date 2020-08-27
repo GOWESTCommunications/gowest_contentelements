@@ -26,6 +26,7 @@ class UspController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 }
                 $json['usps'][$counter]['title'] = $usps[$k]['uspconfiguration']['title'];
                 $json['usps'][$counter]['description'] = $usps[$k]['uspconfiguration']['description'];
+                $json['usps'][$counter]['link'] = $usps[$k]['uspconfiguration']['link'];
 
                 if(strpos($usps[$k]['uspconfiguration']['link'], 't3://page?uid=') !== false) {
                     $pos = strpos($usps[$k]['uspconfiguration']['link'], 'uid=');
@@ -34,8 +35,8 @@ class UspController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     ->reset()
                     ->setTargetPageUid($pid)
                     ->build();
-                    $uri = \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl($link);
-                    $json['usps'][$counter]['link'] = $uri;
+                    //$uri = \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl($link);
+                    $json['usps'][$counter]['link'] = $link;
 
                     
                 } else {

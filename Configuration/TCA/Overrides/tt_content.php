@@ -49,6 +49,12 @@ defined('TYPO3_MODE') or die();
     'Quote (GO.WEST Contentelements)'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'Smartsearch',
+    'Smart-Search (GO.WEST Contentelements)'
+);
+
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_mediaimage'] = 'select_key';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_mediaimage'] = 'pi_flexform,recursive';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_mediaimage', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_mediaimage.xml');
@@ -80,3 +86,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestconten
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_quote'] = 'select_key';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_quote'] = 'pi_flexform,recursive';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_quote', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_quote.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_smartsearch'] = 'select_key';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_smartsearch'] = 'pi_flexform,recursive';
+

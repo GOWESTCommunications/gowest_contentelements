@@ -124,7 +124,7 @@
                                 <cols>30</cols>
                                 <eval>trim</eval>
                                 <enableRichtext>1</enableRichtext>
-	                            <richtextConfiguration>default</richtextConfiguration>
+	                            <richtextConfiguration>gowest_config</richtextConfiguration>
                             </config>
 						</TCEforms>
 					</settings.textimagetext>

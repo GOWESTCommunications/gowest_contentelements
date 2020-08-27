@@ -49,4 +49,11 @@ if(!defined('TYPO3_MODE')) die ('Access denied.');
     []
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'GoWest.gowest_contentelements',
+    'SmartSearch',
+    []
+);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript('gowest_contentelements','setup',    ' <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gowest_contentelements/Configuration/TypoScript/setup.typoscript">');
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['searchresult'] = \GoWest\GowestContentelements\Controller\SearchresultController::class . '::indexAction';

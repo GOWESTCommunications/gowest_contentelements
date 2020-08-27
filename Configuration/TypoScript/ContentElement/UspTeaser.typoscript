@@ -7,8 +7,6 @@ tt_content.list {
                 data {
                     key.field = list_type
 
-                   
-
                     gowestcontentelements_uspteaser = USER
                     gowestcontentelements_uspteaser {
                        
@@ -21,10 +19,7 @@ tt_content.list {
                                 1 = index
                             }
                         }
-
-                       
                     }
-
                 }
             }
         }
