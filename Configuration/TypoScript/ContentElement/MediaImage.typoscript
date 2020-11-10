@@ -11,7 +11,14 @@ tt_content.list {
                     gowestcontentelements_mediaimage = JSON
                     gowestcontentelements_mediaimage {
                         fields {
-
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
                             
                             image = TEXT
                             image.data = flexform: pi_flexform:settings.Image
@@ -23,23 +30,6 @@ tt_content.list {
                                 }
                             }
 
-                            global_textoverlay = TEXT
-                            global_textoverlay.data = flexform: pi_flexform:settings.globalTextOverlay
-
-                            global_textoverlay_summary = TEXT
-                            global_textoverlay_summary.data = flexform: pi_flexform:settings.overlaySummary
-
-                            global_textoverlay_title = TEXT
-                            global_textoverlay_title.data = flexform: pi_flexform:settings.overlayTitle
-
-                            global_textoverlay_subtitle = TEXT
-                            global_textoverlay_subtitle.data = flexform: pi_flexform:settings.overlaySubtitle
-
-                            global_textoverlay_linktext = TEXT
-                            global_textoverlay_linktext.data = flexform: pi_flexform:settings.overlayLinktext
-
-                            global_textoverlay_link = TEXT
-                            global_textoverlay_link.data = flexform: pi_flexform:settings.overlayLink
                         }  
                     }
                 }

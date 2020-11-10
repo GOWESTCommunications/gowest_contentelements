@@ -7,8 +7,9 @@ tt_content.list {
                 data {
                     key.field = list_type
 
-                    gowestcontentelements_mediavideo = JSON
-                    gowestcontentelements_mediavideo {
+                    gowestcontentelements_anchornavigation = JSON
+                    gowestcontentelements_anchornavigation {
+                       
                         fields {
                             flexform = TEXT
                             flexform.dataProcessing {
@@ -17,17 +18,8 @@ tt_content.list {
                                 20 {
                                     as = flexform_rendered
                                 }
+                                30 = GoWest\GowestContentelements\DataProcessing\MultipleimageProcessor
                             }
-                            
-                            video = TEXT
-                            video.data = flexform: pi_flexform:settings.Video
-                            video.dataProcessing {
-                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
-                                10 {
-                                    references.fieldName = video
-                                    as = files
-                                }
-                            }    
                         }
                     }
                 }
@@ -35,6 +27,3 @@ tt_content.list {
         }
     }
 }
-
-
-

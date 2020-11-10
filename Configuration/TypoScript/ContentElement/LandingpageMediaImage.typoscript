@@ -10,6 +10,15 @@ tt_content.list {
                     gowestcontentelements_landingpagemediaimage = JSON
                     gowestcontentelements_landingpagemediaimage {
                         fields {
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
+
                             image = TEXT
                             image.data = flexform: pi_flexform:settings.LandingpageImage
                             image.dataProcessing {
@@ -19,30 +28,6 @@ tt_content.list {
                                     as = files
                                 }
                             }
-
-                            headline = TEXT
-                            headline.data = flexform: pi_flexform:settings.Headline
-
-                            preis = TEXT
-                            preis.data = flexform: pi_flexform:settings.Preis
-
-                            info = TEXT
-                            info.data = flexform: pi_flexform:settings.Info
-
-                            button1_text = TEXT
-                            button1_text.data = flexform: pi_flexform:settings.Button1Text
-
-                            button1_link = TEXT
-                            button1_link.data = flexform: pi_flexform:settings.Button1Link
-
-                            button2_text = TEXT
-                            button2_text.data = flexform: pi_flexform:settings.Button2Text
-
-                            button2_link = TEXT
-                            button2_link.data = flexform: pi_flexform:settings.Button2Link
-
-                            package_id = TEXT
-                            package_id.data = flexform: pi_flexform:settings.PackageID
                         }  
                     }
                 }

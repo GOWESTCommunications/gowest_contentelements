@@ -55,6 +55,30 @@ defined('TYPO3_MODE') or die();
     'Smart-Search (GO.WEST Contentelements)'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'LegalDisclosure',
+    'Legal Disclosure (GO.WEST Contentelements)'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'CsvTables',
+    'CSV Tables (GO.WEST Contentelements)'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'Kennzahlen',
+    'Kennzahlen (GO.WEST Contentelements)'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'AnchorNavigation',
+    'Anchor Navigation (GO.WEST Contentelements)'
+);
+
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_mediaimage'] = 'select_key';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_mediaimage'] = 'pi_flexform,recursive';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_mediaimage', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_mediaimage.xml');
@@ -89,4 +113,20 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestconten
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_smartsearch'] = 'select_key';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_smartsearch'] = 'pi_flexform,recursive';
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_legaldisclosure'] = 'select_key';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_legaldisclosure'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_legaldisclosure', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_legaldisclosure.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_csvtables'] = 'select_key';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_csvtables'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_csvtables', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_csvtables.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_kennzahlen'] = 'select_key';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_kennzahlen'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_kennzahlen', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_kennzahlen.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_anchornavigation'] = 'select_key';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_anchornavigation'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_anchornavigation', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_anchornavigation.xml');
 

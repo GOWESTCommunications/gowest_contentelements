@@ -30,9 +30,54 @@
 			<label index="uspTeaser.cols">Cols</label>   
 			<label index="uspTeaser.usps">USPs</label>   
 
+			<label index="csvtables.file">File</label>   
+			<label index="csvtables.rows">Only Rows matching TSFE:id and 0 (only show Rows with same Link ID as current Page ID)</label>   
+			<label index="csvtables.cols">Only Cols matching TSFE:id and 0 (currently not in use)</label>   
+			<label index="csvtables.noPast">Delete obsolete prices</label>   
 
-			     
+			<label index="adressSheet">Adresse</label>   
+			<label index="company">Firma</label>   
+			<label index="companySub">Firma 2</label>   
+			<label index="street">Straße</label>   
+			<label index="zip">PLZ</label>   
+			<label index="city">Stadt</label>   
+			<label index="country">Land</label>   
+			<label index="email">E-Mail</label>   
+			<label index="phone">Telefonnummer</label>   
+			<label index="fax">Fax</label>   
+			<label index="additionalField">Zusätzliche Infos</label>   
+			<label index="additionalLabel">Label</label>   
+			<label index="additionalValue">Value</label>   
+			<label index="companySheet">Firma</label>   
+			<label index="manager">Geschäftsführer</label>   
+			<label index="registerNumber">Firmenbuchnummer</label>   
+			<label index="jurisdictionCourt">Gerichtsstand</label>   
+			<label index="authority">Behörde gem.</label>   
+			<label index="enterpriseObjective">Unternehmensgegenstand</label>   
+			<label index="uid">Uid</label>   
+			<label index="bankSheet">Bankverbindung</label>   
+			<label index="bankName">Name</label>   
+			<label index="iban">IBAN</label>   
+			<label index="bic">Bic</label>   
+			<label index="imageLicensing">Bildrechte</label>   
+			<label index="imageCreditsTitle">Bildnachweise Titel</label>   
+			<label index="imageCredits">Bildnachweise URL</label>   
+			<label index="agbSheet">AGB / Stornobedingungen</label>   
+			<label index="agb">AGB / Storno</label>   
+			<label index="linkComissionSheet">Link Europäische Kommision</label>   
+			<label index="showLink">Link anzeigen?</label>   
+			<label index="realizationSheet">Realisierung der Website</label>   
+			<label index="webdesign">Webdesign</label>   
+			<label index="webconcept">Webkonzept</label>   
+			<label index="tech">Technische Umsetzung</label>   
+			<label index="content">Erstellung und Eingabe der Inhalte</label>   
+			<label index="editorial">Redaktion</label>   
+			<label index="seo">SEO und SEA</label>   
+			
 
+			<label index="kennzahlen.title">Items</label>   
+
+			<label index="anchornavigation.title">Anchors</label>   
 
 		</languageKey>
 	</data>

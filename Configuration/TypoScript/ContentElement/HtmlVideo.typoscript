@@ -11,6 +11,15 @@ tt_content.list {
                     gowestcontentelements_htmlvideo {
                         fields {
 
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
+
                             video = TEXT
                             video.data = flexform: pi_flexform:settings.htmlVideo
                             video.dataProcessing {
@@ -30,30 +39,6 @@ tt_content.list {
                                     as = files
                                 }
                             }
-
-                            autoplay = TEXT
-                            autoplay.data = flexform: pi_flexform:settings.Autoplay 
-
-                            controls = TEXT
-                            controls.data = flexform: pi_flexform:settings.Controls
-
-                            loop = TEXT
-                            loop.data = flexform: pi_flexform:settings.Loop
-
-                            muted = TEXT
-                            muted.data = flexform: pi_flexform:settings.Muted
-
-                            preloadOptions = TEXT
-                            preloadOptions.data = flexform: pi_flexform:settings.preloadOptions
-
-                            noFullscreen = TEXT
-                            noFullscreen.data = flexform: pi_flexform:settings.NoFullscreen
-
-                            noDownload = TEXT
-                            noDownload.data = flexform: pi_flexform:settings.NoDownload
-                            
-                            noPictureInPicture = TEXT
-                            noPictureInPicture.data = flexform: pi_flexform:settings.NoPictureInPicture
                         }
                     }
                 }

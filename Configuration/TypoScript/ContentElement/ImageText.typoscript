@@ -12,6 +12,14 @@ tt_content.list {
                     gowestcontentelements_imagetext {
                         fields {
 
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
                             
                             image = TEXT
                             image.data = flexform: pi_flexform:settings.Textimage
@@ -23,20 +31,6 @@ tt_content.list {
                                 }
                             }
 
-                            summary = TEXT
-                            summary.data = flexform: pi_flexform:settings.textimageSummary
-
-                            title = TEXT
-                            title.data = flexform: pi_flexform:settings.textimageTitle
-
-                            subtitle = TEXT
-                            subtitle.data = flexform: pi_flexform:settings.textimageSubtitle
-
-                            text = TEXT
-                            text.data = flexform: pi_flexform:settings.textimagetext
-
-                            invert = TEXT
-                            invert.data = flexform: pi_flexform:settings.invert
                         }  
                     }
                 }

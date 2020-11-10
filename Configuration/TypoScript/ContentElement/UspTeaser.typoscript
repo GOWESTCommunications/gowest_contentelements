@@ -7,17 +7,31 @@ tt_content.list {
                 data {
                     key.field = list_type
 
-                    gowestcontentelements_uspteaser = USER
+                    gowestcontentelements_uspteaser = JSON
                     gowestcontentelements_uspteaser {
                        
-                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-                        extensionName = GowestContentelements
-                        pluginName = UspTeaser
-                        vendorName = GoWest
-                        switchableControllerActions {
-                            Usp {
-                                1 = index
+                        fields {
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                                30 = GoWest\GowestContentelements\DataProcessing\MultipleimageProcessor
+                                
                             }
+
+
+                            //flexform = USER
+                            //flexform {
+                            //    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                            //    vendorName = GoWest
+                            //    extensionName = GowestContentelements
+                            //    pluginName = UspTeaser
+                            //    controller = UspTeaserController
+                            //    action = indexAction
+                            //}
                         }
                     }
                 }

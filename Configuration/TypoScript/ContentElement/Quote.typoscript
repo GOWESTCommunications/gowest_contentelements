@@ -11,16 +11,21 @@ tt_content.list {
                     gowestcontentelements_quote = JSON
                     gowestcontentelements_quote {
                         fields {
-
-                            text = TEXT
-                            text.data = flexform: pi_flexform:settings.text
-
-                            author = TEXT
-                            author.data = flexform: pi_flexform:settings.author
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
                         }  
                     }
                 }
+                
             }
+
+            
         }
     }
 }

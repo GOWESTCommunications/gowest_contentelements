@@ -35,12 +35,12 @@
                             </config>
 						</TCEforms>
 					</settings.cols>
-                    <settings.usps>
+                    <settings.items>
                         <section>1</section>
                         <type>array</type>
                         <title>LLL:EXT:gowest_contentelements/Resources/Private/Language/locallang_flexform.xml:uspTeaser.usps</title>
                         <el>
-                        <uspconfiguration>
+                        <configuration>
                             <title>USP</title>
                             <type>array</type>
                             <el>
@@ -100,9 +100,9 @@
                                 </TCEforms>
                             </link>
                             </el>
-                        </uspconfiguration>
+                        </configuration>
                         </el>
-                    </settings.usps>
+                    </settings.items>
                 </el>
             </ROOT>
         </gowestContentelementsuspteaser>

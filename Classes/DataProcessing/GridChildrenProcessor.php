@@ -29,6 +29,28 @@ class GridChildrenProcessor extends \GridElementsTeam\Gridelements\DataProcessin
 {
 
     /**
+     * @var array
+     */
+    protected $registeredOptions = [
+        'sortingDirection'          => 'asc',
+        'sortingDirection.'         => [],
+        'sortingField'              => 'sorting',
+        'sortingField.'             => [],
+        'recursive'                 => 0,
+        'recursive.'                => [],
+        'resolveFlexFormData'       => 0,
+        'resolveFlexFormData.'      => [],
+        'resolveChildFlexFormData'  => 0,
+        'resolveChildFlexFormData.' => [],
+        'resolveBackendLayout'      => 1,
+        'resolveBackendLayout.'     => [],
+        'respectColumns'            => 1,
+        'respectColumns.'           => [],
+        'respectRows'               => 1,
+        'respectRows.'              => [],
+    ];
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -90,7 +112,7 @@ class GridChildrenProcessor extends \GridElementsTeam\Gridelements\DataProcessin
 
             if (
                 isset($this->extbaseFrameworkConfiguration['tt_content.'][$record['CType']])
-                && is_array($this->extbaseFrameworkConfiguration['tt_content.'][$record['CType'] . '.'])
+                ##&& is_array($this->extbaseFrameworkConfiguration['tt_content.'][$record['CType'] . '.'])
             ) {
                 $this->processedRecordVariables[$id] = [
                     'data' => json_decode($recordContentObjectRenderer->cObjGetSingle(

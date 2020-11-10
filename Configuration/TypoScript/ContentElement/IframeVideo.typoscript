@@ -11,12 +11,15 @@ tt_content.list {
                     gowestcontentelements_iframevideo = JSON
                     gowestcontentelements_iframevideo {
                         fields {
-
-                            embedUrl = TEXT
-                            embedUrl.data = flexform: pi_flexform:settings.EmbedUrl
-
-                            aspectRatio = TEXT
-                            aspectRatio.data = flexform: pi_flexform:settings.AxpectRatio
+                            
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+                            }
                         }  
                     }
                 }
