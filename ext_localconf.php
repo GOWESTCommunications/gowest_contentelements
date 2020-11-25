@@ -94,6 +94,11 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][AUS\AusDriverAmazonS3\S3Adapter\Mu
     'className' => GoWest\GowestContentelements\Xclass\MultipartUploaderAdapter::class
 ];
 
+/** Override to add copyright field to FAL Files **/
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][FriendsOfTYPO3\Headless\Utility\FileUtility::class] = [
+    'className' => GoWest\GowestContentelements\Xclass\Headless\FileUtility::class
+];
+
 
 //Labeling Plugins in Backend
 if (TYPO3_MODE === 'BE') {
