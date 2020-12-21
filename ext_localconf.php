@@ -99,6 +99,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][FriendsOfTYPO3\Headless\Utility\Fi
     'className' => GoWest\GowestContentelements\Xclass\Headless\FileUtility::class
 ];
 
+/** Extend DataHandler for Copy-Paste Contentelements Fix **/
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\DataHandling\DataHandler::class] = [
+    'className' => GoWest\GowestContentelements\Xclass\DataHandler::class
+]; 
 
 //Labeling Plugins in Backend
 if (TYPO3_MODE === 'BE') {

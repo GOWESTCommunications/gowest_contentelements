@@ -3,6 +3,8 @@
 namespace GoWest\GowestContentelements\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Core\Http\Message;
 use Psr\Http\Message\ResponseInterface;
@@ -12,6 +14,20 @@ use Psr\Http\Message\ServerRequestInterface;
 class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     private $results = [];
+
+
+    /**
+     * Initialize Action will performed before each action will be executed
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->dbConnections = [
+            'pages'                     => GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages'),
+        ];
+    }
+    
     /**
      * Index action for this controller.
      *
@@ -91,17 +107,11 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
     }
 
     function get_results($query, $weight) {
-        $link = mysqli_connect("mysql", "dummy10", "vP*~_e9Qv}SZb=>g", "dummy10");
 
-        if (!$link) {
-            echo "Fehler: konnte nicht mit MySQL verbinden." . PHP_EOL;
-            echo "Debug-Fehlernummer: " . mysqli_connect_errno() . PHP_EOL;
-            echo "Debug-Fehlermeldung: " . mysqli_connect_error() . PHP_EOL;
-            exit;
-        }
+        $statement = $this->dbConnections['pages']->prepare($query);
+        $statement->execute();
 
-        $result = mysqli_query($link, $query);
-        while($row = mysqli_fetch_array($result)){
+        while ($row = $statement->fetch()) {
             $this->results[$row['uid']]['uid'] = $row['uid'];
             $this->results[$row['uid']]['title'] = $row['title'];
             $this->results[$row['uid']]['subtitle'] = $row['subtitle'];
@@ -112,8 +122,6 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
             $this->results[$row['uid']]['sys_language_uid'] = $row['sys_language_uid'];
             $this->results[$row['uid']]['weight'] = $weight;
         }
-
-        mysqli_close($link);
     }
 }
 
