@@ -1,0 +1,127 @@
+mod.wizards.newContentElement.wizardItems {
+   // add the content element to the tab "common"
+   common {
+        elements {
+            gowestcontentelements_mediaimage {
+                iconIdentifier = gowestcontentelements-mediaimage
+                title = Media Image 
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_mediaimage
+                }
+            }
+            gowestcontentelements_mediavideo {
+                iconIdentifier = gowestcontentelements-mediavideo
+                title = Media Video 
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_mediavideo
+                }
+            }
+            gowestcontentelements_landingpagemediaimage {
+                iconIdentifier = gowestcontentelements-landingpagemediaimage
+                title = Landingpage Media Image 
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_landingpagemediaimage
+                }
+            }
+            gowestcontentelements_uspteaser {
+                iconIdentifier = gowestcontentelements-uspteaser
+                title = USP Teaser
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_uspteaser
+                }
+            }
+            gowestcontentelements_imagetext {
+                iconIdentifier = gowestcontentelements-imagetext
+                title = Image Text
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_imagetext
+                }
+            }
+            gowestcontentelements_htmlvideo {
+                iconIdentifier = gowestcontentelements-htmlvideo
+                title = HTML Video
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_htmlvideo
+                }
+            }
+            gowestcontentelements_iframevideo {
+                iconIdentifier = gowestcontentelements-iframevideo
+                title = Iframe Video
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_iframevideo
+                }
+            }
+            gowestcontentelements_quote {
+                iconIdentifier = gowestcontentelements-quote
+                title = Quote
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_quote
+                }
+            }
+            gowestcontentelements_smartsearch {
+                iconIdentifier = gowestcontentelements-smartsearch
+                title = Smart Search
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_smartsearch
+                }
+            }
+            gowestcontentelements_legaldisclosure {
+                iconIdentifier = gowestcontentelements-legaldisclosure
+                title = legaldisclosure
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_legaldisclosure
+                }
+            }
+            gowestcontentelements_csvtables {
+                iconIdentifier = gowestcontentelements-csvtables
+                title = CSV Tables
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_csvtables
+                }
+            }
+            gowestcontentelements_kennzahlen {
+                iconIdentifier = gowestcontentelements-kennzahlen
+                title = Kennzahlen
+                description = (GO.WEST Contentelements)
+                tt_content_defValues {
+                    CType = list
+                    list_type = gowestcontentelements_kennzahlen
+                }
+            }
+        }
+        show := addToList(gowestcontentelements_mediaimage)
+        show := addToList(gowestcontentelements_mediavideo)
+        show := addToList(gowestcontentelements_landingpagemediaimage)
+        show := addToList(gowestcontentelements_uspteaser)
+        show := addToList(gowestcontentelements_imagetext)
+        show := addToList(gowestcontentelements_htmlvideo)
+        show := addToList(gowestcontentelements_iframevideo)
+        show := addToList(gowestcontentelements_quote)
+        show := addToList(gowestcontentelements_smartsearch)
+        show := addToList(gowestcontentelements_legaldisclosure)
+        show := addToList(gowestcontentelements_csvtables)
+        show := addToList(gowestcontentelements_kennzahlen)
+   }
+}

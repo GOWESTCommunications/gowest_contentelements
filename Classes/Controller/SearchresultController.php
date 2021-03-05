@@ -39,6 +39,8 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
         $q = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('q');
         $lang = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('lang');
 
+        var_dump($request);
+
         if($q) {
             $this->get_pages_by_bodytext($q, $lang, 20);
             $this->get_pages_by_h2($q, $lang, 30); 

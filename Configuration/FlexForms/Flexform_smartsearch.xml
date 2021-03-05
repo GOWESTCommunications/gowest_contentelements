@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+    <sheets>
+        <gowestContentelementssmartsearch>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Configuration</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.rootpage>
+                        <TCEforms>
+                            <label>Pid of rootpage</label>
+                            <config>
+                                <type>text</type>
+                                <rows>1</rows>
+                                <cols>5</cols>
+                                <eval>trim</eval>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.rootpage>
+                </el>
+            </ROOT>
+        </gowestContentelementssmartsearch>
+    </sheets>
+</T3DataStructure>

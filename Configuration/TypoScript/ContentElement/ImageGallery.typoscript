@@ -1,0 +1,60 @@
+tt_content.list =< lib.contentElementWithHeader
+tt_content.list {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = list_type
+
+                    gowestcontentelements_imagegallery = JSON
+                    gowestcontentelements_imagegallery {
+                       
+                        fields {
+                            flexform = TEXT
+                            flexform.dataProcessing {
+                                10 = GoWest\GowestContentelements\DataProcessing\LinkProcessor
+                                20 = FriendsOfTYPO3\Headless\DataProcessing\FlexFormProcessor 
+                                20 {
+                                    as = flexform_rendered
+                                }
+
+                                
+                                #30 = GoWest\GowestContentelements\DataProcessing\MultipleimageProcessor
+                                
+                            }
+                            gallery1 = TEXT
+                            gallery1.data = flexform: pi_flexform:settings.imageone
+                            gallery1.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = gallery1
+                                    as = files
+                                }
+                            }
+                            gallery2 = TEXT
+                            gallery2.data = flexform: pi_flexform:settings.imagtwo
+                            gallery2.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = gallery2
+                                    as = files
+                                }
+                            }
+                            gallery3 = TEXT
+                            gallery3.data = flexform: pi_flexform:settings.imagthree
+                            gallery3.dataProcessing {
+                                10 = FriendsOfTYPO3\Headless\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = gallery3
+                                    as = files
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

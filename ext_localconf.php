@@ -51,7 +51,7 @@ if(!defined('TYPO3_MODE')) die ('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'GoWest.gowest_contentelements',
-    'SmartSearch',
+    'Smartsearch',
     []
 );
 
@@ -76,6 +76,18 @@ if(!defined('TYPO3_MODE')) die ('Access denied.');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'GoWest.gowest_contentelements',
     'AnchorNavigation',
+    []
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'GoWest.gowest_contentelements',
+    'Faq',
+    []
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'GoWest.gowest_contentelements',
+    'ImageGallery',
     []
 );
 
@@ -105,6 +117,73 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\DataHandling\DataHa
 ]; 
 
 //Labeling Plugins in Backend
-if (TYPO3_MODE === 'BE') {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['list']['gowest_contentelements'] = 'GoWest\GowestContentelements\Hook\CmsLayout->list_type_Info';
-}
+//if (TYPO3_MODE === 'BE') {
+//    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['list']['gowest_contentelements'] = 'GoWest\GowestContentelements\Hook\CmsLayout->list_type_Info';
+//}
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gowest_contentelements/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
+);
+
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+
+$iconRegistry->registerIcon(
+   'gowestcontentelements-mediaimage',
+   \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-mediavideo',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-landingpagemediaimage',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-uspteaser',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-imagetext',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-htmlvideo',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-iframevideo',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-quote',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-smartsearch',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-legaldisclosure',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-csvtables',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);
+$iconRegistry->registerIcon(
+    'gowestcontentelements-kennzahlen',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:gowest_contentelements/ext_icon.svg']
+);

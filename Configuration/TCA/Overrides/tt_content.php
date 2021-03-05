@@ -79,6 +79,18 @@ defined('TYPO3_MODE') or die();
     'Anchor Navigation (GO.WEST Contentelements)'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'Faq',
+    'FAQ (GO.WEST Contentelements)'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'GoWest.gowest_contentelements',
+    'ImageGallery',
+    'Image Gallery (GO.WEST Contentelements)'
+);
+
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_mediaimage'] = 'layout,select_key,pages,recursive';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_mediaimage'] = 'pi_flexform,recursive';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_mediaimage', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_mediaimage.xml');
@@ -113,6 +125,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestconten
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_smartsearch'] = 'layout,select_key,pages,recursive';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_smartsearch'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_smartsearch', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_smartsearch.xml');
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_legaldisclosure'] = 'layout,select_key,pages,recursive';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_legaldisclosure'] = 'pi_flexform,recursive';
@@ -130,3 +143,23 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestco
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_anchornavigation'] = 'pi_flexform,recursive';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_anchornavigation', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_anchornavigation.xml');
 
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_faq'] = 'layout,select_key,pages,recursive';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_faq'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_faq', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_faq.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['gowestcontentelements_imagegallery'] = 'layout,select_key,pages,recursive';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['gowestcontentelements_imagegallery'] = 'pi_flexform,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('gowestcontentelements_imagegallery', 'FILE:EXT:' . 'gowest_contentelements' . '/Configuration/FlexForms/Flexform_imagegallery.xml');
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+     [
+         'Test Element Wizard',
+         'gowestcontentelements_mediaimage',
+         'content-text',
+     ],
+     'textmedia',
+     'after'
+ );
