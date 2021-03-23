@@ -146,7 +146,9 @@ class GridChildrenProcessor extends \GridElementsTeam\Gridelements\DataProcessin
                 foreach ($this->processedData['data']['tx_gridelements_backend_layout_resolved']['config']['rows.'] as $rowNumber => $row) {
                     foreach ($row['columns.'] as $column) {
                         $key = substr($rowNumber, 0, -1);
-                        $processedRows[$key][$column['colPos']] = array_values($processedColumns[$column['colPos']]);
+                        if(is_array($processedColumns[$column['colPos']])) {
+                            $processedRows[$key][$column['colPos']] = array_values($processedColumns[$column['colPos']]);
+                        }
                     }
                 }
             }
