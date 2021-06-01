@@ -46,13 +46,17 @@ class MultipleimageProcessor implements DataProcessorInterface
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
         $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
-
-        foreach($processedData['flexform_rendered']['settings']['items'] as $key=>$value) {
-            foreach($processedData['flexform_rendered']['settings']['items'][$key]['configuration'] as $k=>$v) {
-                if(is_numeric($processedData['flexform_rendered']['settings']['items'][$key]['configuration']['image'])) {
-                    $tempimage = $processedData['flexform_rendered']['settings']['items'][$key]['configuration']['image'];
-                    $processedData['flexform_rendered']['settings']['items'][$key]['configuration']['image'] = $resourceFactory->getFileObject((int)$processedData['flexform_rendered']['settings']['items'][$key]['configuration']['image'])->getPublicUrl();
-                    $processedData['flexform_rendered']['settings']['items'][$key]['configuration']['imagename'] = $resourceFactory->getFileObject($tempimage)->getName();
+        $sectionName = isset($processorConfiguration['sectionName']) ? $processorConfiguration['sectionName'] : 'items';
+        $imageFields = isset($processorConfiguration['imageFields']) ? explode(',', $processorConfiguration['imageFields']) : ['image'];
+        
+        foreach($processedData['flexform_rendered']['settings'][$sectionName] as $key=>$value) {
+            foreach($processedData['flexform_rendered']['settings'][$sectionName][$key] as $k=>$v) {
+                foreach($imageFields as $imageField) {
+                    if(is_numeric($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
+                        $tempimage = $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField];
+                        $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = $resourceFactory->getFileObject((int)$processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])->getPublicUrl();
+                        $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField . '_name'] = $resourceFactory->getFileObject($tempimage)->getName();
+                    }
                 }
             }
         }
