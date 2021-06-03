@@ -1,6 +1,11 @@
 <?php
 if(!defined('TYPO3_MODE')) die ('Access denied.');
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'GoWest.gowest_contentelements',
+    'CsvTables',
+    ['Csvtables' => 'index']
+);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'GoWest.gowest_contentelements',
