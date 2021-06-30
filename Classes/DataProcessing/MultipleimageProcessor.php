@@ -52,10 +52,19 @@ class MultipleimageProcessor implements DataProcessorInterface
         foreach($processedData['flexform_rendered']['settings'][$sectionName] as $key=>$value) {
             foreach($processedData['flexform_rendered']['settings'][$sectionName][$key] as $k=>$v) {
                 foreach($imageFields as $imageField) {
-                    if(is_numeric($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
-                        $tempimage = $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField];
-                        $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = $resourceFactory->getFileObject((int)$processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])->getPublicUrl();
-                        $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField . '_name'] = $resourceFactory->getFileObject($tempimage)->getName();
+                    $imageIds = explode(',', $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField]);
+                    foreach($imageIds as $imgId) {
+                        if(is_numeric($imgId)) {
+                            $imageObj = $resourceFactory->getFileObject((int)$imgId);
+                            $image = [
+                                'url' => $imageObj->getPublicUrl(),
+                                'name' => $imageObj->getName()
+                            ];
+                            if(!is_array($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
+                                $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = [];
+                            }
+                            $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField][] = $image;
+                        }
                     }
                 }
             }
