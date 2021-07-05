@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace GoWest\GowestContentelements\Xclass\Headless;
 
+use TYPO3\CMS\Core\Resource\AbstractFile;
 use TYPO3\CMS\Core\Resource\FileReference;
 
 /**
@@ -31,6 +32,21 @@ class FileUtility extends \FriendsOfTYPO3\Headless\Utility\FileUtility
     {
         $return = parent::processFile($fileReference, $dimensions, $cropVariant);
         $metaData = $fileReference->toArray();
+
+        // temporary fix for pdf thumbnail
+        if($fileReference->getType() !== AbstractFile::FILETYPE_IMAGE && $fileReference->getMimeType() === 'application/pdf') {
+            $fileReference = $this->processImageFile($fileReference, $dimensions, $cropVariant);
+            $publicUrl = $this->getImageService()->getImageUri($fileReference, true);
+            $return['publicUrl'] = $publicUrl;
+            $return['properties']['mimeType'] = $fileReference->getMimeType();
+            $return['properties']['type'] =  explode('/', $fileReference->getMimeType())[0];
+            $return['properties']['filename'] = $fileReference->getProperty('name');
+            $return['properties']['size'] = $this->calculateKilobytesToFileSize((int)$fileReference->getSize());
+            $return['properties']['dimenstions'] = [
+                'width' => $fileReference->getProperty('width'),
+                'height' => $fileReference->getProperty('height'),
+            ];
+        }
 
         $return['properties']['copyright'] = $metaData['copyright'] ?: $fileReference->getProperty('copyright');
 
