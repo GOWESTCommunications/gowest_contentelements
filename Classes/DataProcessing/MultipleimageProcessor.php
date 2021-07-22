@@ -19,6 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Frontend\Service\TypoLinkCodecService;
+use FriendsOfTYPO3\Headless\Utility\FileUtility;
 
 /**
  * Fetch records from the database, using the default .select syntax from TypoScript.
@@ -48,6 +49,8 @@ class MultipleimageProcessor implements DataProcessorInterface
         $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
         $sectionName = isset($processorConfiguration['sectionName']) ? $processorConfiguration['sectionName'] : 'items';
         $imageFields = isset($processorConfiguration['imageFields']) ? explode(',', $processorConfiguration['imageFields']) : ['image'];
+
+        $this->processorConfiguration = $processorConfiguration;
         
         foreach($processedData['flexform_rendered']['settings'][$sectionName] as $key=>$value) {
             foreach($processedData['flexform_rendered']['settings'][$sectionName][$key] as $k=>$v) {
@@ -56,10 +59,8 @@ class MultipleimageProcessor implements DataProcessorInterface
                     foreach($imageIds as $imgId) {
                         if(is_numeric($imgId)) {
                             $imageObj = $resourceFactory->getFileObject((int)$imgId);
-                            $image = [
-                                'url' => $imageObj->getPublicUrl(),
-                                'name' => $imageObj->getName()
-                            ];
+                            $image = $this->processFiles($imageObj);
+
                             if(!is_array($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
                                 $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = [];
                             }
@@ -71,4 +72,33 @@ class MultipleimageProcessor implements DataProcessorInterface
         }
         return $processedData;
     }
+
+
+    /**
+     * @param array $dimensions
+     * @return array|null
+     */
+    protected function processFiles($fileObject, array $dimensions = []): ?array
+    {
+        $data = [];
+        $cropVariant = 'default';
+
+        if ($fileObject) {
+            $data = $this->getFileUtility()->processFile($fileObject, $dimensions, $cropVariant);
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return FileUtility
+     */
+    protected function getFileUtility(): FileUtility
+    {
+        return GeneralUtility::makeInstance(FileUtility::class);
+    }
 }
+
+
+
+
