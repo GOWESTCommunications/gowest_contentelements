@@ -61,6 +61,10 @@ class MultipleimageProcessor implements DataProcessorInterface
                             $imageObj = $resourceFactory->getFileObject((int)$imgId);
                             $image = $this->processFiles($imageObj);
 
+                            // Fallback for old version so this not errors any applications
+                            $image['url'] = $imageObj->getPublicUrl();
+                            $image['name'] = $imageObj->getName();
+
                             if(!is_array($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
                                 $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = [];
                             }
