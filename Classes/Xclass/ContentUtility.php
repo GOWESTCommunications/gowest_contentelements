@@ -58,7 +58,7 @@ class ContentUtility extends \FriendsOfTYPO3\Headless\Utility\ContentUtility
 
         if(count($allContentData) != count($contentData)) {
             foreach($allContentData as $colKey => $contentElements) {
-                if(!isset($contentData[$colKey])) {
+                if(!isset($contentData[$colKey]) && $colKey != 'colPos') {
                     #where = {#colPos}=0
                     $curCol = $contentElements[0]->colPos;
                     $configuration['10.']['select.']['where'] = '{#colPos}=' . $curCol;
