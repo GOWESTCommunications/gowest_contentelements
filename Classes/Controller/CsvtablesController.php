@@ -202,12 +202,6 @@ class CsvtablesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
                     array($interval)
                 );
             }
-            $data[$i][2] = $GLOBALS['TSFE']->cObj->typoLink_URL(
-                array(
-                    'parameter' => $data[$i][2],
-                    'forceRelativeUrl' => false,
-                )
-            );
             
 			$data[0][$i]['name'] = $data[1][$i];
             $data[0][$i]['link'] = $data[2][$i];
@@ -217,6 +211,14 @@ class CsvtablesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 				array(' '),
 				'',
             $data[1][$i]));  
+        }
+	for ($i = 3; $i < count($data); $i++) {
+            $data[$i][2] = $GLOBALS['TSFE']->cObj->typoLink_URL(
+                array(
+                    'parameter' => $data[$i][2],
+                    'forceRelativeUrl' => false,
+                )
+            );
         }
 		return $data;
 	}  
