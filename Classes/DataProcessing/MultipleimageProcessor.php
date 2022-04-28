@@ -52,23 +52,25 @@ class MultipleimageProcessor implements DataProcessorInterface
 
         $this->processorConfiguration = $processorConfiguration;
         
-        foreach($processedData['flexform_rendered']['settings'][$sectionName] as $key=>$value) {
-            foreach($processedData['flexform_rendered']['settings'][$sectionName][$key] as $k=>$v) {
-                foreach($imageFields as $imageField) {
-                    $imageIds = explode(',', $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField]);
-                    foreach($imageIds as $imgId) {
-                        if(is_numeric($imgId)) {
-                            $imageObj = $resourceFactory->getFileObject((int)$imgId);
-                            $image = $this->processFiles($imageObj);
+        if($processedData['flexform_rendered']['settings'][$sectionName] && is_array($processedData['flexform_rendered']['settings'][$sectionName])) {
+            foreach($processedData['flexform_rendered']['settings'][$sectionName] as $key=>$value) {
+                foreach($processedData['flexform_rendered']['settings'][$sectionName][$key] as $k=>$v) {
+                    foreach($imageFields as $imageField) {
+                        $imageIds = explode(',', $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField]);
+                        foreach($imageIds as $imgId) {
+                            if(is_numeric($imgId)) {
+                                $imageObj = $resourceFactory->getFileObject((int)$imgId);
+                                $image = $this->processFiles($imageObj);
 
-                            // Fallback for old version so this not errors any applications
-                            $image['url'] = $imageObj->getPublicUrl();
-                            $image['name'] = $imageObj->getName();
+                                // Fallback for old version so this not errors any applications
+                                $image['url'] = $imageObj->getPublicUrl();
+                                $image['name'] = $imageObj->getName();
 
-                            if(!is_array($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
-                                $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = [];
+                                if(!is_array($processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField])) {
+                                    $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField] = [];
+                                }
+                                $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField][] = $image;
                             }
-                            $processedData['flexform_rendered']['settings'][$sectionName][$key][$k][$imageField][] = $image;
                         }
                     }
                 }
