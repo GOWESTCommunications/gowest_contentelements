@@ -36,6 +36,12 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\DataHandling\DataHa
     'className' => GoWest\GowestContentelements\Xclass\DataHandler::class
 ]; 
 
+/** Disable Gallery Processor as we do cropping and resizing via frontend api **/
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][FriendsOfTYPO3\Headless\DataProcessing\GalleryProcessor::class] = [
+    'className' => GoWest\GowestContentelements\Xclass\Headless\GalleryProcessor::class
+]; 
+
+
 //Labeling Plugins in Backend
 //if (TYPO3_MODE === 'BE') {
 //    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['list']['gowest_contentelements'] = 'GoWest\GowestContentelements\Hook\CmsLayout->list_type_Info';
