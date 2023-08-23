@@ -49,6 +49,7 @@ class LinkProcessor implements DataProcessorInterface
 
         $typoLinkCodec = GeneralUtility::makeInstance(TypoLinkCodecService::class);
         if(preg_match_all('#(t3:\/\/[^\s,\<,\",\&]*)#', $processedData['data']['pi_flexform'], $linkMatches)) {
+            rsort($linkMatches[1]);
 
             foreach($linkMatches[1] as $linkMatch) {
                 $linkReplacement = $cObj->typoLink_URL(['parameter' => $linkMatch]);
