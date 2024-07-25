@@ -47,7 +47,6 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
             $this->get_pages_by_category($q, $lang, 80);   
             $this->get_pages_by_title($q, $lang, 100);    
         }
-
         usort($this->results, function($a, $b) {
             return $b['weight'] <=> $a['weight'];
         });
@@ -57,52 +56,146 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
     }
 
     function get_pages_by_title($searchword, $lang, $weight) {
-        $query = "SELECT `uid`, `title`, `subtitle`, `description`, `nav_title`, `keywords`, `sys_language_uid`, `slug` FROM `pages` WHERE (`sys_language_uid` = '". $lang ."' AND `hidden` = 0 AND `deleted` = 0) AND (`title` LIKE '%". $searchword ."%'
-        OR `nav_title` LIKE '%". $searchword ."%')";
+        $query = "  SELECT
+                        `uid`,
+                        `title`,
+                        `subtitle`,
+                        `description`,
+                        `nav_title`,
+                        `keywords`,
+                        `sys_language_uid`,
+                        `slug`
+                    FROM
+                        `pages`
+                    WHERE
+                        (
+                            `doktype` = 1
+                            AND `sys_language_uid` = '". $lang ."'
+                            AND `hidden` = 0
+                            AND `deleted` = 0
+                        )
+                        AND (
+                            `title` LIKE '%". $searchword ."%'
+                            OR `nav_title` LIKE '%". $searchword ."%'
+                        )";
 
         $this->get_results($query, $weight);
     }
 
     function get_pages_by_category($searchword, $lang, $weight) {
-        $query = "SELECT `sys_category_record_mm`.`uid_foreign`, `category`.`title`, `page`.`uid`, `page`.`title`, `page`.`description`, `page`.`slug` FROM `sys_category_record_mm`
-        INNER JOIN `sys_category` `category` ON `sys_category_record_mm`.`uid_local` = `category`.`uid`
-        INNER JOIN `pages` `page` ON `sys_category_record_mm`.`uid_foreign` = `page`.`uid`
-        WHERE `tablenames` = 'pages' AND `category`.`title` LIKE '%". $searchword ."%' AND `page`.`sys_language_uid` = '". $lang ."'
-        AND `category`.`sys_language_uid` = '". $lang ."' AND `category`.`hidden` = 0 AND `category`.`deleted` = 0 AND `category`.`deleted` = 0 AND `page`.`deleted` = 0
-        AND `category`.`hidden` = 0 AND `page`.`hidden` = 0";
+        $query = "SELECT
+                    `sys_category_record_mm`.`uid_foreign`,
+                    `category`.`title`,
+                    `page`.`uid`,
+                    `page`.`title`,
+                    `page`.`description`,
+                    `page`.`slug`
+                FROM
+                    `sys_category_record_mm`
+                    INNER JOIN `sys_category` `category` ON `sys_category_record_mm`.`uid_local` = `category`.`uid`
+                    INNER JOIN `pages` `page` ON `sys_category_record_mm`.`uid_foreign` = `page`.`uid`
+                WHERE
+                    `tablenames` = 'pages'
+                    AND `category`.`title` LIKE '%". $searchword ."%'
+                    AND `page`.`sys_language_uid` = '". $lang ."'
+                    AND `category`.`sys_language_uid` = '". $lang ."'
+                    AND `category`.`hidden` = 0
+                    AND `category`.`deleted` = 0
+                    AND `category`.`deleted` = 0
+                    AND `page`.`deleted` = 0
+                    AND `category`.`hidden` = 0
+                    AND `page`.`hidden` = 0
+                    AND `page`.`doktype` = 1";
 
         $this->get_results($query, $weight);
     }
 
     function get_pages_by_desc_keywords($searchword, $lang, $weight) {
-        $query = "SELECT `uid`, `title`, `subtitle`, `description`, `slug`, `keywords`, `description` FROM `pages` WHERE (`sys_language_uid` = '". $lang ."' AND `hidden` = 0 AND `deleted` = 0) AND (`keywords` LIKE '%". $searchword ."%'
+        $query = "SELECT `uid`, `title`, `subtitle`, `description`, `slug`, `keywords`, `description` FROM `pages` WHERE (`doktype` = 1 AND `sys_language_uid` = '". $lang ."' AND `hidden` = 0 AND `deleted` = 0) AND (`keywords` LIKE '%". $searchword ."%'
         OR `description` LIKE '%". $searchword ."%')";
 
         $this->get_results($query, $weight);
     }
 
     function get_pages_by_sectioncontent($searchword, $lang, $weight) {
-        $query = "SELECT `uid`, `title`, `subtitle`, `description`, `slug`, `keywords`, `description`, `tx_sectioncontent_abstract_title`, `tx_sectioncontent_abstract_subtitle`, `tx_sectioncontent_abstract_description` FROM `pages`
-        WHERE `tx_sectioncontent_abstract_title` LIKE '%". $searchword ."%' AND `hidden` = 0 AND `deleted` = 0 AND `doktype` = 1
-        OR `tx_sectioncontent_abstract_subtitle` LIKE '%". $searchword ."%' OR `tx_sectioncontent_abstract_description` LIKE '%". $searchword ."%'
-        AND `pages`.`deleted` = 0 AND`pages`.`hidden` = 0 AND `sys_language_uid` = '". $lang ."'";
+        $query = "  SELECT
+                        `uid`,
+                        `sys_language_uid`,
+                        `title`,
+                        `subtitle`,
+                        `description`,
+                        `slug`,
+                        `keywords`,
+                        `description`,
+                        `tx_sectioncontent_abstract_title`,
+                        `tx_sectioncontent_abstract_subtitle`,
+                        `tx_sectioncontent_abstract_description`
+                    FROM
+                        `pages`
+                    WHERE
+                        (
+                            `tx_sectioncontent_abstract_title` LIKE '%". $searchword ."%'
+                            OR `tx_sectioncontent_abstract_subtitle` LIKE '%". $searchword ."%'
+                            OR `tx_sectioncontent_abstract_description` LIKE '%". $searchword ."%'
+                        )
+                        AND `hidden` = 0
+                        AND `deleted` = 0
+                        AND `doktype` = 1
+                        AND `pages`.`deleted` = 0
+                        AND `pages`.`hidden` = 0
+                        AND `sys_language_uid` = '". $lang ."'";
 
         $this->get_results($query, $weight);
     }
 
     function get_pages_by_h2($searchword, $lang, $weight) {
-        $query = "SELECT `page`.`uid`, `page`.`title`, `page`.`subtitle`, `page`.`description`, `page`.`slug`  FROM `tt_content` 
-        RIGHT JOIN `pages` `page` ON `tt_content`.`pid` = `page`.`uid` WHERE `header` LIKE '%". $searchword ."%' AND `page`.`sys_language_uid` = 0
-        AND `page`.`hidden` = 0 AND `page`.`deleted` = 0 AND `tt_content`.`deleted` = 0 AND `tt_content`.`hidden` = '". $lang ."'";
-
+        $query = "  SELECT
+                        `page`.`uid`,
+                        `page`.`sys_language_uid`,
+                        `page`.`title`,
+                        `page`.`subtitle`,
+                        `page`.`description`,
+                        `page`.`slug`
+                    FROM
+                        `tt_content`
+                        RIGHT JOIN `pages` `page` ON `tt_content`.`pid` = `page`.`uid`
+                    WHERE
+                        `tt_content`.`header` LIKE '%". $searchword ."%'
+                        AND `page`.`sys_language_uid` = '". $lang ."'
+                        AND `page`.`hidden` = 0
+                        AND `page`.`deleted` = 0
+                        AND `page`.`doktype` = 1
+                        AND `tt_content`.`sys_language_uid` = '". $lang ."'
+                        AND `tt_content`.`deleted` = 0
+                        AND `tt_content`.`hidden` = 0";
         $this->get_results($query, $weight);
     }
 
     function get_pages_by_bodytext($searchword, $lang, $weight) {
-        $query = "SELECT `page`.`uid`, `page`.`title`, `page`.`subtitle`, `page`.`description`, `page`.`slug`  FROM `tt_content` 
-        RIGHT JOIN `pages` `page` ON `tt_content`.`pid` = `page`.`uid` WHERE `bodytext` LIKE '%". $searchword ."%' OR `pi_flexform` LIKE '%". $searchword ."%' AND `page`.`sys_language_uid` = 0
-        AND `page`.`hidden` = 0 AND `page`.`deleted` = 0 AND `tt_content`.`deleted` = 0 AND `tt_content`.`hidden` = '". $lang ."'";
+        $query = "  SELECT
+                        `page`.`uid`,
+                        `page`.`sys_language_uid`,
+                        `page`.`title`,
+                        `page`.`subtitle`,
+                        `page`.`description`,
+                        `page`.`slug`
+                    FROM
+                        `tt_content`
+                        RIGHT JOIN `pages` `page` ON `tt_content`.`pid` = `page`.`uid`
+                    WHERE
+                        (
+                            `tt_content`.`bodytext` LIKE '%". $searchword ."%'
+                            OR `tt_content`.`pi_flexform` LIKE '%". $searchword ."%'
+                        )
+                        AND `page`.`sys_language_uid` = '". $lang ."'
+                        AND `page`.`hidden` = 0
+                        AND `page`.`deleted` = 0
+                        AND `page`.`doktype` = 1
+                        AND `tt_content`.`sys_language_uid` = '". $lang ."'
+                        AND `tt_content`.`deleted` = 0
+                        AND `tt_content`.`hidden` = 0";
 
+                        
         $this->get_results($query, $weight);
     }
 
@@ -124,8 +217,3 @@ class SearchresultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
         }
     }
 }
-
-
-
-
-
