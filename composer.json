@@ -3,9 +3,8 @@
     "type": "typo3-cms-extension",
     "description": "Grid Elements json output for EXT:gowest_contentelements",
     "homepage": "http://go-west.at",
-    "version": "bump version",
     "license": "MIT",
-    "version": "2.0.9",
+    "version": "2.0.10",
     "require": {
       "typo3/cms-core": "^10.0",
       "friendsoftypo3/headless": "^2.0"
